@@ -5,16 +5,16 @@
     <meta charset="UTF-8">
     <title>CupidAI 💖</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="landing">
     <div class="bg-big-hearts">
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
-        <span>❤</span>
+        <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+        <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
+        <span>❤</span><span>❤</span><span>❤</span><span>❤</span><span>❤</span>
     </div>
+
 
 
     <!-- Big pink background hearts -->
@@ -35,9 +35,10 @@
             Let AI help you understand what they <em>might</em> mean.
         </p>
 
-        <a href="/predict" class="cta-btn">
+        <button class="cta-btn" onclick="showCheesy()">
             💘 Check My Chances
-        </a>
+        </button>
+
     </section>
 
     <!-- HOW IT WORKS -->
@@ -95,9 +96,144 @@
         </div>
 
     </section>
+    <div id="cheesyOverlay" class="cheesy-overlay">
+        <div class="cheesy-box">
+            <p id="cheesyText">Loading...</p>
+            <span>💘</span>
+        </div>
+    </div>
+
     <footer class="footer">
         © 2026 • Built by Amritanshu Mukund
     </footer>
+    <script>
+        const cheesyLines = [
+            "Some hearts speak in glances,\nothers in smiles.\nLet’s listen closely 💕",
+
+            "A look held a second too long,\na smile that stayed.\nMaybe it means something 💫",
+
+            "Not all feelings are spoken.\nSome hide in laughs and pauses 💓",
+
+            "Between hello and goodbye,\nthere’s a story forming 💘",
+
+            "Eye contact.\nA nervous laugh.\nA quiet maybe 💭",
+
+            "If attention were poetry,\nthey’ve been writing you verses ✨",
+
+            "Some signals are soft,\nbut the heart hears them clearly 💞",
+
+            "A smile given freely,\na presence that lingers.\nInteresting… 👀",
+
+            "Love doesn’t shout.\nIt whispers.\nLet’s translate 💌",
+
+            "The heart notices\nwhat the mind tries to ignore 💗",
+
+            "A joke laughed at too hard,\na message replied too fast.\nCurious 😳",
+
+            "Some moments aren’t random.\nThey’re feelings finding a way 💫",
+
+            "Not coincidence.\nNot imagination.\nMaybe intention 💘",
+
+            "Every glance is data.\nEvery smile a clue 🧠💖",
+
+            "Before words,\nthere are signs.\nLet’s read them 💕",
+            "Some hearts speak softly,\nthrough glances they never explain 💕",
+
+            "A smile that lingers,\na silence that feels warm.\nThat’s how it starts 💫",
+
+            "Not every feeling arrives loudly.\nSome walk in quietly and stay 💓",
+
+            "Between a laugh and a look,\nthere’s a story unfolding 💘",
+
+            "The heart notices\nwhat the mind pretends not to see 💭",
+
+            "A message replied too quickly,\na presence that stays a little longer 👀",
+
+            "Some moments repeat\nuntil we finally understand them 💞",
+
+            "If attention were a language,\nthey’ve been speaking it fluently ✨",
+
+            "A glance held just long enough\nto mean something 😳",
+
+            "Love doesn’t rush.\nIt reveals itself in patterns 💌",
+
+            "A laugh that feels personal,\na joke meant just for you 💗",
+
+            "Not coincidence.\nNot imagination.\nSomething else 💫",
+
+            "Some feelings arrive disguised\nas ordinary moments 💘",
+
+            "The pauses say more\nthan the words ever could 💕",
+
+            "A nervous smile.\nA careful tone.\nInteresting…",
+
+            "Love leaves clues\nbefore it leaves confessions 🧠💖",
+
+            "Some hearts don’t knock.\nThey linger at the door 💓",
+
+            "A look shared,\nthen quickly stolen back ✨",
+
+            "What if the signs aren’t random\nbut waiting to be noticed 💭",
+
+            "The way they listen.\nThe way they stay.\nThat matters 💞",
+
+            "Some people feel familiar\nbefore they feel close 💘",
+
+            "A smile given freely\nusually means something 🌸",
+
+            "Not all attraction is loud.\nSome of it is gentle 💗",
+
+            "The heart keeps count\neven when we don’t 💫",
+
+            "A laugh that sounds different\nwhen you’re around 😌",
+
+            "Some connections whisper\nbefore they speak 💌",
+
+            "There’s meaning\nin where someone chooses to be 💕",
+
+            "Love often arrives\npretending to be chance 👀",
+
+            "A glance.\nA pause.\nA maybe 💘",
+
+            "Some feelings bloom slowly,\nbut they bloom honestly 🌷",
+
+            "The signs are subtle,\nbut they’re consistent 💓",
+
+            "Attention given repeatedly\nis rarely accidental ✨",
+
+            "The heart remembers\nsmall things for a reason 💭",
+
+            "Some smiles are shared.\nSome are meant 💗",
+
+            "Not everything needs a label\nto feel real 💞",
+
+            "Love leaves traces\nlong before it leaves words 💘",
+
+            "A presence that feels calming\nis never ordinary 🌙",
+
+            "Some feelings don’t ask permission.\nThey just appear 💕",
+
+            "The way they look away\nsays as much as when they don’t 😳",
+
+            "Every sign is a sentence.\nTogether, they tell a story 📖💖"
+        ];
+
+
+        function showCheesy() {
+            const overlay = document.getElementById("cheesyOverlay");
+            const text = document.getElementById("cheesyText");
+
+            const randomLine = cheesyLines[Math.floor(Math.random() * cheesyLines.length)];
+            text.innerText = randomLine;
+
+            overlay.classList.add("show");
+
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.location.href = "/predict";
+            }, 2000);
+        }
+    </script>
 
 </body>
 
