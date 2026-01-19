@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Your Chances 💘 | CupidAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="predict-page">
+
+    <!-- Big background hearts -->
+    <div class="bg-big-hearts">
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+    </div>
+
+    <div class="container glass">
+
+        <!-- ================= RESULT AT TOP ================= -->
+        {% if score is not none %}
+        <div class="result-card top-result">
+            <h3>💘 Interest Score (%)</h3>
+            <div class="score">{{ score }}</div>
+
+            {% if score >= 70 %}
+            <p class="high">Strong signs of interest 💕</p>
+            {% elif score >= 40 %}
+            <p class="mid">Mixed signals 😌</p>
+            {% else %}
+            <p class="low">Subtle or unclear signs 😔</p>
+            {% endif %}
+
+        </div>
+        {% else %}
+        <h2>💌 Rate the Signs You Notice</h2>
+        <p class="hint">0 = not at all · 10 = very often</p>
+        {% endif %}
+
+        <!-- ================= FORM ================= -->
+        <form method="POST">
+
+            {% set labels = {
+            "initiates_conversation": "They initiate conversations",
+            "engagement": "They seem engaged while talking",
+            "quick_responses": "They reply quickly",
+            "eye_contact": "They maintain eye contact",
+            "joke_responses": "They laugh at your jokes",
+            "nervous": "They act nervous around you",
+            "stays_near_you": "They stay close to you",
+            "helps_you": "They help you without being asked",
+            "smiles": "They smile when they see you",
+            "takes_you_out": "They make plans or take you out"
+            } %}
+
+            {% for feature in features %}
+            <div class="question scale-question">
+
+                <label>{{ labels[feature] }}</label>
+
+                <div class="scale-wrapper">
+                    <span>0</span>
+                    <input type="range" name="{{ feature }}" min="0" max="10" value="5"
+                        oninput="this.nextElementSibling.innerText = this.value" required>
+                    <span>10</span>
+                </div>
+
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="cta-btn full">
+                 Predict My Chances
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

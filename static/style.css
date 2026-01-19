@@ -1,0 +1,293 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ================= BASE BACKGROUND ================= */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff3b6f, #ff9eb3);
+    z-index: -6;
+}
+
+/* ================= FLOATING HEARTS (MORE + FASTER) ================= */
+body::after {
+    content: "❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤ ❤";
+    position: fixed;
+    inset: 0;
+    font-size: 44px;
+    opacity: 0.09;
+    letter-spacing: 80px;
+    line-height: 130px;
+    animation: floatHearts 45s linear infinite;
+    z-index: -5;
+}
+
+@keyframes floatHearts {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-100%); }
+}
+
+
+/* ================= BIG DRIFTING HEARTS ================= */
+.bg-big-hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -4;
+}
+
+.bg-big-hearts span {
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.14;
+    animation: bigDrift linear infinite;
+}
+
+.bg-big-hearts span:nth-child(1) { left: 8%;  top: 20%; animation-duration: 55s; }
+.bg-big-hearts span:nth-child(2) { left: 45%; top: 40%; animation-duration: 70s; }
+.bg-big-hearts span:nth-child(3) { left: 78%; top: 60%; animation-duration: 60s; }
+.bg-big-hearts span:nth-child(4) { left: 25%; top: 30%; animation-duration: 80s; }
+.bg-big-hearts span:nth-child(5) { left: 90%; top: 50%; animation-duration: 65s; }
+
+
+@keyframes bigDrift {
+    from { transform: translateY(0) scale(1); }
+    to   { transform: translateY(-240vh) scale(1.25); }
+}
+
+/* ================= LANDING PAGE ================= */
+.landing {
+    min-height: 100vh;
+    padding: 90px 20px;
+}
+
+.hero {
+    max-width: 740px;
+    margin: auto;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 66px;
+    text-shadow: 0 14px 40px rgba(0,0,0,0.45);
+}
+
+.hero sub {
+    font-size: 18px;
+    color: #ffd6e0;
+}
+
+.hero p {
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #ffe5ec;
+}
+
+/* ================= CTA ================= */
+.cta-btn {
+    display: inline-block;
+    margin-top: 42px;
+    padding: 16px 46px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+    transition: all 0.25s ease;
+}
+
+.cta-btn:hover {
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.32);
+}
+
+/* ================= REACTIVE SECTIONS ================= */
+.steps,
+.cards {
+    max-width: 1150px;
+    margin: 110px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 34px;
+}
+
+.step,
+.card {
+    padding: 34px;
+    border-radius: 26px;
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.step:hover,
+.card:hover {
+    transform: translateY(-14px) scale(1.05);
+    box-shadow: 0 32px 70px rgba(0,0,0,0.5);
+}
+
+/* ================= PREDICT PAGE ================= */
+.predict-page {
+    min-height: 100vh;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container.glass {
+    max-width: 560px;
+    width: 100%;
+    padding: 50px;
+    border-radius: 32px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.35);
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.hint {
+    text-align: center;
+    margin: 16px 0 34px;
+    font-size: 14px;
+    color: #ffe5ec;
+}
+
+/* ================= QUESTIONS ================= */
+.question {
+    margin-bottom: 26px;
+}
+
+.question label {
+    font-weight: 600;
+}
+
+.options {
+    margin-top: 10px;
+    display: flex;
+    gap: 24px;
+}
+
+.options input {
+    accent-color: #ff3b6f;
+}
+
+/* ================= RESULT ================= */
+.result-card {
+    margin-top: 44px;
+    padding: 30px;
+    border-radius: 24px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    text-align: center;
+}
+
+.score {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.high { color: #b7f7d3; }
+.mid  { color: #ffe066; }
+.low  { color: #ffd6d6; }
+
+/* ================= SCALE QUESTIONS ================= */
+
+.scale-question {
+    margin-bottom: 28px;
+}
+
+.scale-question label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.scale-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.scale-wrapper span {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.scale-wrapper output {
+    min-width: 28px;
+    text-align: center;
+    font-weight: bold;
+    color: #ffe066;
+}
+
+/* Slider styling */
+.scale-wrapper input[type="range"] {
+    flex: 1;
+    height: 6px;
+    border-radius: 10px;
+    appearance: none;
+    background: linear-gradient(to right, #ff4d6d, #ffd6e0);
+    outline: none;
+}
+
+.scale-wrapper input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ff4d6d;
+    cursor: pointer;
+}
+
+.scale-wrapper input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #ff4d6d;
+    cursor: pointer;
+}
+
+/* Result at top */
+.top-result {
+    margin-bottom: 35px;
+    animation: popIn 0.6s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Full-width button */
+.cta-btn.full {
+    width: 100%;
+    text-align: center;
+}
